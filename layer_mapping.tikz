@@ -1,0 +1,41 @@
+\begin{tikzpicture}[
+  font=\small,
+  layer/.style={draw, rounded corners=2.5pt, very thick, align=center, minimum width=35mm, minimum height=13mm, fill=white},
+  core/.style={draw, rounded corners=2.5pt, very thick, align=center, minimum width=37mm, minimum height=13mm, fill=gray!10},
+  guard/.style={draw, rounded corners=2.5pt, dashed, thick, align=center, minimum width=35mm, minimum height=10mm, fill=gray!5},
+  arrow/.style={-Latex, very thick},
+  lightarrow/.style={-Latex, thick, gray!70},
+  note/.style={align=center, font=\scriptsize}
+]
+
+% Main pipeline
+\node[layer] (text) {Input Discourse\\$x$};
+\node[core, right=10mm of text] (m) {Layer 1\\25 Meters\\$\mathbf{m}(x)\in\mathbb{R}^{25}$};
+\node[core, right=10mm of m] (b) {Layer 2\\7 Bundles\\$\mathbf{b}=A\mathbf{m}$};
+\node[core, right=10mm of b] (p) {Layer 3\\5 Pressures\\$\mathbf{p}=B\mathbf{b}$};
+\node[core, right=10mm of p] (u) {Layer 4\\UI4 Axes\\$\mathbf{u}=C\mathbf{p}$};
+\node[layer, right=10mm of u] (h) {Human\\Verification\\Interpretation};
+
+\draw[arrow] (text) -- (m);
+\draw[arrow] (m) -- node[above,note] {aggregate} (b);
+\draw[arrow] (b) -- node[above,note] {project} (p);
+\draw[arrow] (p) -- node[above,note] {render} (u);
+\draw[arrow] (u) -- node[above,note] {no decision transfer} (h);
+
+% Invariant band
+\node[guard, below=10mm of b, minimum width=95mm] (inv) {Non-evaluative invariant: $Evaluation=\varnothing$, $Judgment=\varnothing$, $Advice=\varnothing$};
+\draw[lightarrow, dashed] (inv.north west) -- (m.south);
+\draw[lightarrow, dashed] (inv.north) -- (b.south);
+\draw[lightarrow, dashed] (inv.north east) -- (p.south);
+\draw[lightarrow, dashed] (inv.east) -- (u.south);
+
+% I2OS context
+\node[guard, above=10mm of b, minimum width=135mm] (i2os) {I2OS Context: structure observation $\rightarrow$ projection $\rightarrow$ human structural verification};
+\draw[lightarrow, dashed] (i2os.south west) -- (text.north);
+\draw[lightarrow, dashed] (i2os.south) -- (b.north);
+\draw[lightarrow, dashed] (i2os.south east) -- (h.north);
+
+% Bottom formula
+\node[note, below=7mm of inv] (formula) {$\mathrm{I2OS\mbox{-}SIV25}(x)=CBA\mathbf{m}(x)$};
+
+\end{tikzpicture}

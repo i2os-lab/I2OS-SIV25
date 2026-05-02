@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+  font=\small,
+  row/.style={draw, rounded corners=3pt, very thick, align=left, text width=128mm, minimum height=14mm, inner sep=6pt, fill=gray!4},
+  title/.style={font=\bfseries},
+  arrow/.style={-Latex, very thick}
+]
+
+\node[row] (m) {\textbf{Layer 1: 25 Structural Meters}\\[-1mm]
+\scriptsize Local activations such as conclusion-first pressure, assertion density, evidence tokens, causal markers, emotional charge, agency transfer, and judgment delegation. These are not risk labels; they are structural reactions.};
+
+\node[row, below=7mm of m] (b) {\textbf{Layer 2: 7 Structural Bundles}\\[-1mm]
+\scriptsize Premise/Assertion, Evidence/Authority, Causality, Framing, Modulation, Emotion/Sensitivity, and Agency/Delegation/Omission. Bundles reorganize local signals into discourse-level functions.};
+
+\node[row, below=7mm of b] (p) {\textbf{Layer 3: 5 Pressure Dimensions}\\[-1mm]
+\scriptsize PREM, FLOW, FRAME, LOCK, and NOISE. Pressures describe how discourse arranges premises, causal direction, framing, closure, and reception load.};
+
+\node[row, below=7mm of p] (u) {\textbf{Layer 4: UI4 Projection}\\[-1mm]
+\scriptsize PREM / FLOW / FRAME / LOCK are rendered as human-readable structural states. The system does not output verdicts; interpretation remains with the human verifier.};
+
+\draw[arrow] (m) -- node[right, font=\scriptsize] {$A$} (b);
+\draw[arrow] (b) -- node[right, font=\scriptsize] {$B$} (p);
+\draw[arrow] (p) -- node[right, font=\scriptsize] {$C$} (u);
+
+\node[align=center, font=\small, below=6mm of u] (formula) {$\mathrm{I2OS\mbox{-}SIV25}(x)=CBA\mathbf{m}(x)$};
+
+\end{tikzpicture}

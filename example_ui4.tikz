@@ -1,0 +1,38 @@
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners=3pt, very thick, align=center, minimum width=31mm, minimum height=12mm, fill=white},
+  focus/.style={draw, rounded corners=3pt, very thick, align=center, minimum width=35mm, minimum height=13mm, fill=gray!12},
+  influence/.style={draw, rounded corners=3pt, dashed, thick, align=center, minimum width=52mm, minimum height=11mm, fill=gray!5},
+  arrow/.style={-Latex, very thick},
+  lightarrow/.style={-Latex, thick, gray!70},
+  label/.style={font=\scriptsize, align=center}
+]
+
+% Conventional path
+\node[label] (convlabel) {Conventional fast path};
+\node[box, below=4mm of convlabel] (ctext) {Text /\\Discourse};
+\node[box, right=10mm of ctext] (meaning) {Meaning\\Interpretation};
+\node[box, right=10mm of meaning] (cjudge) {Immediate\\Judgment};
+\draw[arrow] (ctext) -- (meaning);
+\draw[arrow] (meaning) -- (cjudge);
+
+% SIV25 path
+\node[label, below=18mm of ctext] (sivlabel) {I2OS-SIV25 structural path};
+\node[box, below=4mm of sivlabel] (stext) {Text /\\Discourse};
+\node[focus, right=10mm of stext] (siv) {Structural\\Illumination\\SIV25};
+\node[focus, right=10mm of siv] (delay) {Cognitive\\Delay Layer};
+\node[box, right=10mm of delay] (hjudge) {Human\\Interpretation};
+\draw[arrow] (stext) -- (siv);
+\draw[arrow] (siv) -- (delay);
+\draw[arrow] (delay) -- (hjudge);
+
+% Influence box
+\node[influence, above=8mm of siv] (inf) {Bias / Narrative Pressure /\\AI-generated Discourse};
+\draw[lightarrow] (inf) -- (siv);
+
+% Non censorship band
+\node[influence, below=8mm of delay, minimum width=92mm] (band) {No censorship / No verdict / No recommendation\\Influence is not suppressed; its structure is made observable.};
+\draw[lightarrow, dashed] (band.north west) -- (siv.south);
+\draw[lightarrow, dashed] (band.north east) -- (hjudge.south);
+
+\end{tikzpicture}

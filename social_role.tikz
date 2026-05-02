@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners=2.5pt, very thick, align=center, minimum width=34mm, minimum height=12mm, fill=gray!5},
+  focus/.style={draw, rounded corners=2.5pt, very thick, align=center, minimum width=37mm, minimum height=14mm, fill=gray!12},
+  arrow/.style={-Latex, very thick}
+]
+
+\node[box] (i2os) {I2OS\\Question / Structure OS};
+\node[focus, below=9mm of i2os] (siv) {SIV25\\Discourse Structure Layer};
+\node[box, left=17mm of siv] (text) {Text / Discourse};
+\node[box, right=17mm of siv] (ui) {Structural State\\PREM FLOW FRAME LOCK};
+\node[box, below=9mm of siv] (human) {Human\\Designer / Observer / Verifier};
+
+\draw[arrow] (i2os) -- node[right,font=\scriptsize]{non-evaluative principle} (siv);
+\draw[arrow] (text) -- node[above,font=\scriptsize]{observe} (siv);
+\draw[arrow] (siv) -- node[above,font=\scriptsize]{illuminate} (ui);
+\draw[arrow] (ui) -- node[right,font=\scriptsize]{interpretation remains human} (human);
+\draw[arrow] (human) -- node[left,font=\scriptsize]{structural verification} (siv);
+
+\end{tikzpicture}

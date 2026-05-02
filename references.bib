@@ -1,0 +1,110 @@
+# I2OS-SIV25
+## A Judgment-Free Structural Illumination Framework for Discourse Analysis
+
+**Author:** Masayuki Ando / I2OS Lab  
+**Status:** Draft v0.3, GitHub-ready research package
+
+I2OS-SIV25 (Structural Illumination Vector 25) is a judgment-free discourse analysis framework developed as a discourse-structure layer of I2OS.
+It does **not** classify truth, morality, danger, or intent. Instead, it visualizes the structural pressure embedded in text.
+
+## Core Idea
+
+```text
+I2OS context
+  ↓
+Text
+  ↓
+25 Structural Meters
+  ↓
+7 Structural Bundles
+  ↓
+5 Pressure Dimensions
+  ↓
+4 UI Axes
+  ↓
+Human Verification
+```
+
+Final UI axes:
+
+- **PREM** - premise pressure
+- **FLOW** - causal flow pressure
+- **FRAME** - framing pressure
+- **LOCK** - closure pressure
+
+## Design Invariant
+
+```text
+Evaluation = ∅
+Judgment   = ∅
+Advice     = ∅
+```
+
+I2OS-SIV25 illuminates structure and returns final interpretation to the human reader.
+
+## Files
+
+```text
+main.tex                    LaTeX paper draft
+references.bib              Minimal bibliography
+figures/i2os_context.tikz   I2OS/SIV25 context diagram
+figures/pipeline.tikz       Main architecture diagram
+figures/layer_mapping.tikz  Meter-to-UI structural mapping diagram
+main.pdf                    Compiled PDF draft
+Makefile                    Build helper
+.gitignore                  LaTeX cleanup rules
+```
+
+## Build
+
+Use any LaTeX distribution with `pdflatex` and BibTeX:
+
+```bash
+pdflatex main.tex
+bibtex main
+pdflatex main.tex
+pdflatex main.tex
+```
+
+Or use the Makefile:
+
+```bash
+make
+```
+
+Or use `latexmk`:
+
+```bash
+latexmk -pdf main.tex
+```
+
+## Paper Title
+
+**I2OS-SIV25: A Judgment-Free Structural Illumination Framework for Discourse Analysis**
+
+## License
+
+Add your preferred license before public release.
+
+## Figures
+
+This package includes four paper-ready TikZ figures:
+
+- `figures/i2os_context.tikz` - SIV25 as a discourse-structure layer of I2OS
+- `figures/social_role.tikz` - structural role against biased, narrative, and AI-generated discourse
+- `figures/compression_matrix.tikz` - matrix projection from 25 meters to UI4
+- `figures/pipeline.tikz` - full 25 -> 7 -> 5 -> 4 pipeline
+- `figures/example_ui4.tikz` - example input and UI4 structural rendering
+
+## Build
+
+```bash
+make
+```
+
+or manually:
+
+```bash
+pdflatex main.tex
+pdflatex main.tex
+```
