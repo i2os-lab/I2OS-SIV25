@@ -2,7 +2,7 @@
 
 ## A Judgment-Free Structural Illumination Framework for Discourse Analysis
 
-➡️ [Read Full Paper (PDF)](./main.pdf)
+➡️ [Read Full Paper (PDF)](./I2OS_SIV25_Paper_Draft_v0_3.pdf)
 
 I2OS-SIV25 is a judgment-free discourse analysis framework that visualizes structural pressure without evaluating correctness, morality, danger, or intent.
 
